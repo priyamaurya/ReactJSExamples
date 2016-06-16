@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5th React Nested components</title>
+	<script src="../react.js"></script>
+	<script src="../trans.js"></script>
+</head>
+<body>
+	<script type="text/jsx">
+		var FirstComponent = React.createClass({
+	      render :function(){
+	       return (
+	       	<div>
+	 			<h1>{this.props.text}</h1>
+	 			<p>this is first components</p>
+	       </div>
+	       )
+
+	      }
+		});
+
+var ThirdComponent = React.createClass({
+ render :function(){
+ 	return (
+ 			<div>
+ 					<h1> {this.props.text}</h1>
+ 			</div>
+ 		);
+ }
+
+});
+		var SecondComponent = React.createClass({
+			render :function(){
+
+				return (
+						<div>
+						<h1>This is second component calling first component</h1>
+						<FirstComponent text ="this is first props"/>
+						<ThirdComponent text = "this is third componenet" />
+							</div>	
+					);
+			}
+
+
+		});
+		React.render(<SecondComponent/>,document.body);
+
+	</script>
+</body>
+</html>

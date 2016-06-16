@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>This is event handling</title> 
+	  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script src="../react.js"></script>
+	<script src="../trans.js"></script>
+</head>
+<body>
+<script type="text/jsx">
+	var EventComponent = React.createClass({
+		render:function(){
+				return(
+						<div className= "container">
+						 <div class= "jumbotron">
+						 <h1>{this.props.text}</h1>
+						 <div class ="container">
+						 please clll;kflsjk hfhfj fhrurfjsdjfh
+						 <button onClick = {this.remove} className = "btn btn-danger glyphicon glyphicon-trash"/>
+						 <button onClick ={this.edit}   className ="btn btn-primary glyphicon glyphicon-pencil"/>
+						 <button onClick ={this.add} className ="btn btn-primary"/>
+						 </div>
+						 </div>
+						 </div>
+				);
+		},
+
+		edit :function(){
+			alert("you are trying to edit something");
+		},
+
+		remove :function(){
+			alert("you are trying to delete something");
+		},
+
+		add: function(){
+
+			alert("this is add method");
+		}
+
+	});
+
+	React.render(<EventComponent text="event component props"/>,document.body);
+
+
+</script>
+	
+</body>
+</html>

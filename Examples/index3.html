@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="../react.js"></script>
+	<script src="../trans.js"></script>
+	<title>Third React Component</title>
+</head>
+<body>
+<div id = "react-node"></div>
+	<script type="text/jsx">
+
+
+	var MyComponent = React.createClass({
+
+		render :function(){
+			return <div><h2>My React  Component</h2></div>;
+		}
+	});
+     
+     React.render(<div>
+     	<MyComponent/>
+     	<MyComponent/>
+     	<MyComponent />
+     	</div>,
+
+     	document.getElementById('react-node')
+     	);
+
+	</script>
+</body>
+</html>

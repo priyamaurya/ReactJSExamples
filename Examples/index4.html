@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="../react.js"></script>
+	<script src="../trans.js"></script>
+	<title>4th React Component - Props</title>
+</head>
+<body>
+<div id = "react-node"></div>
+<script type="text/jsx">
+	var PropComponent = React.createClass({
+		render:function(){
+			return(
+				<div>
+				   <h1>{this.props.text}</h1>
+				   <p>{this.props.children}</p>
+				   <p>{this.props.text}</p>
+				   <p>{this.props.children}</p>
+				</div>
+
+				);
+		}
+	});
+
+React.render(<div>
+ 				<PropComponent text="Hello World"/>
+ 				This is children
+ 				<PropComponent text = "second time called" />
+ 				this is again children
+ 				<PropComponent text = "hello again"/>
+
+	</div>,
+	document.getElementById('react-node'));
+
+
+</script>
+	
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React Js State Explained in detail</title>
+	<script src="../react.js"></script>
+	<script src="../trans.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+<script type="text/jsx">
+	var Note = React.createClass({
+		getInitialState :function(){
+				return {editing :false , text:''}
+
+		},
+		edit :function(){
+         this.setState({editing : true});
+		},
+
+		remove :function(){
+			alert("you are removing the Note");
+			this.setState({text:''});
+			this.setState({editing:false});
+		},
+		save :function(){
+
+			this.setState({editing :false});
+			var val = this.refs.newText.getDOMNode().value;
+			this.setState({text : val});
+		},
+        renderDisplay :function(){
+        	return (<div className = "note">
+        		<p> {this.state.text}</p>
+        		<button className = "btn btn-primary glyphicon glyphicon-pencil" name = "Edit" onClick = {this.edit} />
+        		<button className="btn btn-danger glyphicon glyphicon-trash" name ="Delete"  onClick = {this.remove}/>
+        	</div>);
+        },
+
+       /* handleChange:function(e){
+        	this.setState({text : e.target.value});
+        	this.setState({editing : true});
+        },
+*/        renderForm :function(){
+           return (<div className = "note">
+        	<textarea class = "form-control"  ref ="newText"></textarea>
+        	
+        		<button className="btn btn-success btn-sm glyphicon glyphicon-floppy-disk" name ="Save"  onClick = {this.save}/>
+        	</div>);
+        },
+
+		render:function(){
+				if(this.state.editing){
+					return this.renderForm();
+				}
+				else{
+					 return this.renderDisplay();
+				}			
+			}
+
+
+	});
+React.render(<Note />, document.body);
+
+</script>
+	
+</body>
+</html>
